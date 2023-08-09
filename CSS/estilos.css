@@ -1,0 +1,339 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 40%;
+    max-width: 250px;
+}
+
+.logo {
+    width: 20%;
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos del header */
+
+#header {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .header {
+    min-height: 8vh;
+    transition: 0.3s ease background-color;
+}
+
+.header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1500px;
+    padding: 0 10px;
+}
+
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30, 30);
+    width: 50vw;
+    height: 100vh;
+    right: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s ease right;
+    margin: 0;
+}
+
+#header .nav-list ul.active {
+    right: 0;
+}
+
+#header .nav-list ul a {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 5rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3 ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+    color: #cc0000;
+}
+
+#header .hamburger {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(0.8);
+    margin-right: 20px;
+}
+
+#header .hamburger:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: 0.3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+
+/* Estilos del jumbotron */
+.titulo {
+    width: 60%;
+}
+
+.jumbotron {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Img/Producto_Imagen18.jpg');
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+
+form input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos del catálogo de productos */
+.productos {
+    padding: 50px;
+}
+
+.productos h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.producto h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.producto p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #cc0000;
+}
+
+/* Estilos de las secciones adicionales (puedes personalizar según tus necesidades) */
+.adicionales {
+    padding: 50px;
+}
+
+/* Estilos de la sección de datos curiosos */
+.datos-curiosos {
+    padding: 50px;
+}
+
+.datos-curiosos h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.curiosidad {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.curiosidad .p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #cc0000;
+}
+.dato {
+    font-size: 20px;
+}
+.botonDato {
+    background-color: #cc0000;
+    border-radius: 15px;
+    color: #fff;
+    border: #cc0000;
+    width: 20%;
+    height: 40px;
+}
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-info p {
+    margin: 5px;
+}
+
+.redes-sociales a {
+    margin: 0 10px;
+}
+
+.redes-sociales img {
+    height: 30px;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    /* header */
+    #header .hamburger {
+        display: none;
+    }
+
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+
+    #header .nav-list ul li a {
+        font-size: 1.8rem;
+    }
+
+    #header .nav-list ul a:after {
+        display: none;
+    }
+
+    /* End header */
+}
